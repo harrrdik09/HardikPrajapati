@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional portfolio showcasing my work and skills">
+    <meta name="keywords" content="portfolio, web developer, projects, skills">
+    <meta property="og:title" content="My Portfolio">
+    <meta property="og:description" content="Professional portfolio showcasing my work and skills">
+    <meta property="og:image" content="images/og-image.jpg">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Your Name",
+        "jobTitle": "Web Developer",
+        "url": "https://yourportfolio.com"
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button></li>
+            </ul>
+            <button class="mobile-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <i class="fas fa-code hero-icon"></i>
+            <h1>Welcome to My Portfolio</h1>
+            <p>Final-Year Student | Aspiring Developer | Creating Solutions with Code</p>
+            <a href="#projects" class="cta-button">View Work</a>
+        </div>
+        <div class="hero-background">
+            <svg class="hero-graphic" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="var(--primary-color)" stroke-width="0.1" opacity="0.2"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/profile.jpg" alt="Profile picture" loading="lazy">
+                </div>
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>I am a fresher and a final-year student pursuing B.Sc. (CA & IT) in my third year at Patan Hemchandracharya North Gujarat University. I am from Harij, passionate about development and eager to learn and grow in the field.</p>
+                    <div class="metrics">
+                        <div class="metric">
+                            <span class="number">~1</span>
+                            <span class="label">Year of Learning</span>
+                        </div>
+                        <div class="metric">
+                            <span class="number">3</span>
+                            <span class="label">Projects Completed</span>
+                        </div>
+                        <div class="metric">
+                            <span class="number">Actively</span>
+                            <span class="label">Learning New Tech</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <!-- Project cards will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills & Tools</h2>
+            <div class="skills-grid">
+                <!-- Skills will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-user"></i> **Name:** Hardik Prajapati</p>
+                <p><i class="fas fa-phone"></i> **Phone:** <a href="tel:+917487094036">+91 74870 94036</a></p>
+                <p><i class="fas fa-envelope"></i> **Email:** <a href="mailto:hardikprajapati8098@gmail.com">hardikprajapati8098@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close modal">&times;</button>
+            <div class="modal-body">
+                <!-- Project details will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Offline Notification -->
+    <div class="toast" id="offline-toast">
+        You are currently offline. Some features may be limited.
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
