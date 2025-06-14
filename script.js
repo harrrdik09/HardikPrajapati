@@ -26,7 +26,7 @@ const projects = [
         technologies: ['Flutter', 'Dart'],
         liveLink: '#',
         githubLink: 'https://github.com/harrrdik09/1stApp',
-        apkLink: 'images/HpTask.apk'
+        apkLink: 'HpTask.apk'
     }
 ];
 
@@ -147,8 +147,8 @@ function showProjectModal(project) {
             ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
         </div>
         <div class="project-links">
-            ${project.apkLink ? `<a href="${project.apkLink}" target="_blank" class="cta-button" download>Download App</a>` : ''}
-            ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" class="cta-button secondary">Source Code</a>` : ''}
+            ${project.apkLink ? `<a href="${project.apkLink}" download class="cta-button"><i class="fas fa-download"></i> Download App</a>` : ''}
+            ${project.githubLink ? `<a href="${project.githubLink}" target="_blank" class="cta-button secondary"><i class="fab fa-github"></i> Source Code</a>` : ''}
         </div>
     `;
     modal.classList.add('active');
