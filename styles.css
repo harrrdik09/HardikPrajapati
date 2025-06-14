@@ -1,24 +1,31 @@
 :root {
-    /* Light theme variables (Red, Wine, and attractive complements) */
-    --primary-color: #dc2626; /* A vibrant red */
-    --secondary-color: #991b1b; /* A deeper wine red */
-    --background-color: #fef2f2; /* Very light red/pink for background */
-    --text-color: #3f0f0f; /* Dark reddish-brown for text */
-    --card-background: #fee2e2; /* Light red for cards */
-    --border-color: #fca5a5; /* Slightly darker red for borders */
-    --nav-background: rgba(254, 242, 242, 0.95); /* Light red with transparency */
-    --shadow-color: rgba(153, 27, 27, 0.15);
+    /* Light Theme Colors */
+    --primary-color: #fbbf24; /* Warm Yellow */
+    --secondary-color: #f59e0b; /* Darker Yellow */
+    --background-color: #ffffff;
+    --card-background: #f8fafc;
+    --text-color: #111827; /* Almost Black */
+    --text-secondary: #374151; /* Dark Gray */
+    --border-color: #e5e7eb;
+    --hover-color: #fef3c7; /* Light Yellow */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --gradient-start: #fbbf24;
+    --gradient-end: #f59e0b;
 }
 
 [data-theme="dark"] {
-    --primary-color: #ef4444; /* Brighter red for dark mode */
-    --secondary-color: #be123c; /* A richer wine red for dark mode */
-    --background-color: #260f0f; /* Dark reddish-brown background */
-    --text-color: #fce7f3; /* Light pinkish-white for text */
-    --card-background: #451b1b; /* Darker red for cards */
-    --border-color: #b91c1c; /* Red border */
-    --nav-background: rgba(38, 15, 15, 0.95); /* Dark red with transparency */
-    --shadow-color: rgba(0, 0, 0, 0.5);
+    /* Dark Theme Colors */
+    --primary-color: #fbbf24; /* Warm Yellow */
+    --secondary-color: #f59e0b; /* Darker Yellow */
+    --background-color: #111827; /* Dark Background */
+    --card-background: #1f2937; /* Slightly Lighter Dark */
+    --text-color: #f9fafb; /* Almost White */
+    --text-secondary: #d1d5db; /* Light Gray */
+    --border-color: #374151;
+    --hover-color: #374151;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --gradient-start: #fbbf24;
+    --gradient-end: #f59e0b;
 }
 
 /* Reset and Base Styles */
@@ -53,10 +60,11 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: var(--nav-background);
+    background: var(--card-background);
     backdrop-filter: blur(10px);
     z-index: 1000;
     box-shadow: 0 2px 10px var(--shadow-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .nav-content {
@@ -104,6 +112,15 @@ body {
     width: 100%;
 }
 
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.nav-links a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
 .mobile-menu {
     display: none;
     background: none;
@@ -122,13 +139,15 @@ body {
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    position: relative;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    text-align: center;
+    padding: 2rem;
     overflow: hidden;
-    padding: 0 1rem;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
 }
 
 .hero-background {
@@ -154,46 +173,41 @@ body {
 }
 
 .hero-content {
-    text-align: center;
+    position: relative;
+    z-index: 1;
     max-width: 800px;
-    position: relative; /* Added for positioning icon */
+    color: var(--text-color);
 }
 
-.hero-icon {
-    font-size: 4rem; /* Adjust size as needed */
-    color: var(--primary-color);
+.hero-content h1 {
+    font-size: 3rem;
     margin-bottom: 1rem;
-    animation: fadeIn 1s ease-out forwards;
-    display: block;
+    color: var(--text-color);
 }
 
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    line-height: 1.2;
-}
-
-.hero p {
+.hero-content p {
     font-size: 1.25rem;
     margin-bottom: 2rem;
     color: var(--text-color);
-    opacity: 0.9;
 }
 
-.cta-button {
+.hero .cta-button {
     display: inline-block;
     padding: 1rem 2rem;
-    background: var(--primary-color);
-    color: white;
+    background: var(--text-color);
+    color: var(--primary-color);
     text-decoration: none;
     border-radius: 5px;
-    font-weight: 500;
-    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
 }
 
-.cta-button:hover {
+.hero .cta-button:hover {
+    background: var(--primary-color);
+    color: var(--text-color);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px var(--shadow-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* About Section */
@@ -261,11 +275,13 @@ body {
     height: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px solid var(--border-color);
 }
 
 .project-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
 }
 
 .project-card img {
@@ -305,10 +321,11 @@ body {
 
 .tech-tag {
     background: var(--primary-color);
-    color: white;
+    color: var(--text-color);
     padding: 0.25rem 0.75rem;
     border-radius: 15px;
     font-size: 0.85rem;
+    font-weight: 500;
 }
 
 /* Skills Section */
@@ -329,10 +346,13 @@ body {
     background: var(--card-background);
     border-radius: 10px;
     transition: transform 0.3s;
+    border: 1px solid var(--border-color);
 }
 
 .skill-item:hover {
     transform: translateY(-5px);
+    background: var(--hover-color);
+    border-color: var(--primary-color);
 }
 
 /* Contact Section */
@@ -363,7 +383,7 @@ body {
 }
 
 .contact-info a:hover {
-    text-decoration: underline;
+    color: var(--secondary-color);
 }
 
 .contact-info i {
@@ -474,6 +494,7 @@ body {
 
 .close-modal:hover {
     background-color: var(--hover-color);
+    color: var(--primary-color);
 }
 
 /* Toast Notification */
@@ -596,4 +617,13 @@ body {
 
 .download-btn i {
     font-size: 1.1rem;
+}
+
+/* Update theme toggle button */
+#theme-toggle {
+    color: var(--primary-color);
+}
+
+#theme-toggle:hover {
+    background-color: var(--hover-color);
 } 
